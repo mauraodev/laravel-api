@@ -15,9 +15,8 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::where('id', 1)
-            ->get()
-            ->comments();
+            ->get();
 
-        dd($posts->toArray());
+        return response()->json($posts);
     }
 }

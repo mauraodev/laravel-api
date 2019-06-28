@@ -18,8 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/', function () {
-    return response()->json(['message' => 'Jobs API', 'status' => 'Connected']);;
+    return response()->json(['message' => 'Jobs API', 'status' => 'Connected']);
 });
 
 Route::resource('jobs', 'JobsController');
 Route::resource('companies', 'CompaniesController');
+
+Route::get('posts', 'PostsController@index');

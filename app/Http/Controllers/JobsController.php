@@ -7,7 +7,7 @@ use App\Job;
 
 class JobsController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
@@ -22,7 +22,7 @@ class JobsController extends Controller
     {
         $job = Job::with('company')->find($id);
 
-        if(!$job) {
+        if (!$job) {
             return response()->json([
                 'message'   => 'Record not found',
             ], 404);

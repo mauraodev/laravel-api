@@ -7,11 +7,11 @@ use App\Company;
 
 class CompaniesController extends Controller
 {
-    public function __construct() 
+    public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
- 
+
     public function index()
     {
         $companies = Company::all();
@@ -22,7 +22,7 @@ class CompaniesController extends Controller
     {
         $company = Company::find($id);
 
-        if(!$company) {
+        if (!$company) {
             return response()->json([
                 'message'   => 'Record not found',
             ], 404);
